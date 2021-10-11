@@ -3,10 +3,7 @@ import {authorization, registration} from "../../api/authorization";
 import {authorizationTypes} from "../../types/auth";
 import {setEmailAuth, setError, setRegister, setRegisterFail, setRegisterSuccess} from "./slice";
 import {PayloadAction} from "@reduxjs/toolkit";
-
-interface errorType {
-    message: string
-}
+import { errorType } from "../../types/errors";
 
 function* authWorker(action: PayloadAction<authorizationTypes>) {
     try {
