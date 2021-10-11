@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {FC, Suspense, useEffect} from 'react';
+import firebase from "./firebase";
+import {Layout} from "antd";
+import {PageHeader} from "./components/PageHeader";
+import {RootRoutes} from "./components/RootRoutes";
+import {PageFooter} from "./components/PageFooter";
+import {useActions} from "./hooks/useActions";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+export const App: FC = () => {
+    const {setAuthChange} = useActions()
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(user => {
+            setAuthChange(user)
+        })
+    }, [setAuthChange])
+
+    return (
+        <>
+            <Suspense fallback={<h1>Loading ...</h1>}>
+                <Layout>
+                    <PageHeader/>
+                    <RootRoutes/>
+                    <PageFooter/>
+                </Layout>
+            </Suspense>
+        </>
+    );
+};

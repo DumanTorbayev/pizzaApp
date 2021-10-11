@@ -1,0 +1,15 @@
+.btn {
+  width: 100%;
+  margin-bottom: 8px;
+  background-color: #9254de;
+  border-color: #9254de;
+
+  &:hover, &:active, &:focus {
+    background-color: #722ed1;
+    border-color: #722ed1;
+  }
+}
+
+.signup__link {
+  color: #9254de;
+}

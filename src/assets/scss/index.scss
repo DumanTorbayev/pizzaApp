@@ -1,0 +1,22 @@
+.page-wrapper {
+  min-height: calc(100vh - 64px);
+  margin-top: 64px;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  @media (max-width: 1440px) {
+    max-width: 1200px;
+
+  }
+
+  .pages-title {
+    font-size: 36px;
+
+    span {
+      padding: 0 8px;
+    }
+  }
+}
