@@ -1,8 +1,6 @@
 # Pizza project
 
-### [Demo Link](https://pizzathor-41687.firebaseapp.com/)
-
-## Screenshot
+### [Demo Link](https://pizzathor-41687.web.app/)
 ![](https://i.ibb.co/GH2C1vY/2021-10-30-16-24-36.png)
 
 ## Stack
