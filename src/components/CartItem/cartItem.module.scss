@@ -1,0 +1,39 @@
+.product {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.productImg {
+  width: 200px;
+  margin-right: 4px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.productContent {
+  width: 100%;
+  padding: 16px;
+}
+
+.productWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.productCounterWrapper {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.productCounterText {
+  width: 25px;
+  text-align: center;
+}

@@ -14,45 +14,45 @@
 .navbar {
   width: 100%;
   border: none;
+}
 
-  &__list {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.navbarList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbarItem {
+  margin: 0 16px;
+}
+
+.navbarItemLogo {
+  margin-left: 0;
+  margin-right: auto;
+  font-size: 24px;
+  font-weight: 500;
+
+  img {
+    width: 35px;
+    margin-right: 8px;
   }
 
-  &__item {
-    margin: 0 16px;
-
-    &--logo {
-      margin-left: 0;
-      margin-right: auto;
-      font-size: 24px;
-      font-weight: 500;
-
-      img {
-        width: 35px;
-        margin-right: 8px;
-      }
-
-      .navbar__link {
-        &:hover {
-          color: #9254de;
-        }
-      }
-    }
-  }
-
-  &__link {
-    font-size: 18px;
-    font-weight: 500;
-    color: #9254de;
-
+  .navbarLink {
     &:hover {
-      color: #722ed1;
+      color: #9254de;
     }
+  }
+}
+
+.navbarLink {
+  font-size: 18px;
+  font-weight: 500;
+  color: #9254de;
+
+  &:hover {
+    color: #722ed1;
   }
 }

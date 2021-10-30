@@ -1,0 +1,23 @@
+.cardTitle {
+  margin-top: 16px;
+}
+
+.cardText {
+  margin-bottom: 16px;
+}
+
+.cardTextCounter {
+  display: flex;
+  justify-content: center;
+  width: 25px;
+  margin-bottom: 0;
+}
+
+.cardRow {
+  margin-top: auto;
+}
+
+.cardCol {
+  display: flex;
+  justify-content: flex-end;
+}

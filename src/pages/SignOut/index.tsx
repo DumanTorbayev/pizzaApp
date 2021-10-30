@@ -1,14 +1,15 @@
-import React from 'react';
-import {Redirect} from "react-router-dom";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
-import firebase from "../../firebase";
+import React from 'react'
+import {Redirect} from 'react-router-dom'
+import {useTypedSelector} from '../../hooks/useTypedSelector'
+import firebase from '../../firebase'
+import {routes} from '../../components/RootRoutes'
 
 export const SignOut = () => {
-    const {user} = useTypedSelector(state => state.auth)
+  const {user} = useTypedSelector((state) => state.auth)
 
-    if(user) {
-        firebase.auth().signOut()
-    }
+  if (user) {
+    firebase.auth().signOut()
+  }
 
-    return <Redirect to="/" />
-};
+  return <Redirect to={routes.home} />
+}

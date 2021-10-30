@@ -1,9 +1,5 @@
-import React, {FC} from 'react';
+import React, {FC} from 'react'
 
 export const Orders: FC = () => {
-    return (
-        <div className={`page-wrapper`}>
-            Orders
-        </div>
-    );
-};
+  return <div className="page-wrapper">Orders</div>
+}
