@@ -5,13 +5,13 @@
 
 ## Stack
 * React ([Create React App](https://create-react-app.dev/))
-* Typescript
-* Redux
-* Redux Toolkit
-* React router
-* Axios
-* SCSS
-* Firebase 
+* [Typescript](https://www.typescriptlang.org/)
+* [Redux](https://redux.js.org/)
+* [Redux Toolkit](https://redux-toolkit.js.org/)
+* [React router](https://reactrouter.com/)
+* [Axios](https://github.com/axios/axios)
+* [Ant Design](https://ant.design/)
+* [Firebase](https://firebase.google.com/) 
 
 ## Firebase Setup
 
