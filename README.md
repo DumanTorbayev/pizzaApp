@@ -15,7 +15,7 @@
 
 ## Firebase Setup
 
-You need to create a firebase configeration file holding the firebase settings in the path `/src/firebase/config.ts`. The required format is:
+You need to create a firebase configuration file holding the firebase settings in the path `/src/firebase/config.ts`. The required format is:
 
 ```javascript
 const firebaseConfig = {
