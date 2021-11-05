@@ -12,7 +12,7 @@ export const Menu: FC = () => {
 
   useEffect(() => {
     setMenu()
-  }, [setMenu])
+  }, [])
 
   return (
     <div className="page-wrapper">
