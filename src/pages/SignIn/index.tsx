@@ -14,7 +14,7 @@ export const SignIn: FC = () => {
     <div className="page-wrapper">
       <div className="container">
         <Divider className="pages-title" orientation="left">
-          Sigh in
+          Войти
         </Divider>
         <Row>
           <Col span={12} offset={6}>

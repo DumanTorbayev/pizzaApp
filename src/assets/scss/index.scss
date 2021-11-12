@@ -11,6 +11,13 @@
     max-width: 1200px;
 
   }
+  @media (max-width: 1280px) {
+    max-width: 100%;
+    padding: 24px;
+  }
+  @media (max-width: 1024px) {
+    padding: 16px;
+  }
 
   .pages-title {
     font-size: 36px;
@@ -28,5 +35,15 @@
   &:hover, &:active, &:focus {
     background-color: #722ed1;
     border-color: #722ed1;
+  }
+}
+
+.secondary-btn {
+  background-color: #ccc;
+  border-color: #ccc;
+
+  &:hover, &:active, &:focus {
+    background-color: #A9A7A7FF;
+    border-color: #A9A7A7FF;
   }
 }

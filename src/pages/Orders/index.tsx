@@ -1,5 +1,14 @@
 import React, {FC} from 'react'
+import {Divider} from 'antd'
 
 export const Orders: FC = () => {
-  return <div className="page-wrapper">Orders</div>
+  return (
+    <div className="page-wrapper">
+      <div className="container">
+        <Divider className="pages-title" orientation="left">
+          Заказы
+        </Divider>
+      </div>
+    </div>
+  )
 }

@@ -1,8 +1,9 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {authorizationTypes} from '../../types/auth'
+import {UserType} from '../../types/user'
 
 interface initialStateTypes {
-  user: any
+  user: UserType | null
   isLoading: boolean
   registered: boolean
   error: null | string

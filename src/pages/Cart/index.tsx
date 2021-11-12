@@ -11,13 +11,11 @@ export const Cart = () => {
   const {items} = useTypedSelector((state) => state.cart)
   const totalPrice = useTypedSelector((state) => getTotalPrice(state))
 
-  // if (!user) return <Redirect to={routes.signIn} />
-
   return (
     <div className="page-wrapper">
       <div className="container">
         <Divider className="pages-title" orientation="left">
-          Cart
+          Корзина
         </Divider>
 
         <div className={styles.list}>
@@ -30,7 +28,7 @@ export const Cart = () => {
           <Typography.Title level={2}>$ {totalPrice}</Typography.Title>
 
           <Button className="primary-btn" type="primary">
-            <Link to={routes.checkout}>Checkout</Link>
+            <Link to={routes.checkout}>Оформить заказ</Link>
           </Button>
         </div>
       </div>

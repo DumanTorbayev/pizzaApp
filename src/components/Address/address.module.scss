@@ -1,0 +1,14 @@
+.card {
+  max-width: 300px;
+  margin-bottom: 24px;
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.subtitle {
+  font-weight: 500;
+}

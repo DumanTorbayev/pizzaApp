@@ -23,11 +23,11 @@ export const SideCart = () => {
     <div className={styles.container}>
       <div className={styles.head}>
         <Typography.Title className={styles.title} level={2}>
-          Cart
+          Корзина
         </Typography.Title>
         {items.length > 0 && (
           <Button type="primary" danger={true} onClick={() => clearCart()}>
-            Clear cart
+            Очистить корзину
           </Button>
         )}
       </div>
@@ -54,7 +54,7 @@ export const SideCart = () => {
             className={`${styles.cartBtn} primary-btn`}
             onClick={goToCart}
           >
-            Go to cart
+            Перейти в корзину
           </Button>
         </div>
       )}

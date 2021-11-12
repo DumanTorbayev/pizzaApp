@@ -21,19 +21,19 @@ export const PageHeader: FC = () => {
           </li>
           <li className={styles.navbarItem}>
             <NavLink to={routes.menu} className={styles.navbarLink}>
-              Menu
+              Меню
             </NavLink>
           </li>
           {user ? (
             <>
               <li className={styles.navbarItem}>
                 <NavLink to={routes.orders} className={styles.navbarLink}>
-                  Orders
+                  Заказы
                 </NavLink>
               </li>
               <li className={styles.navbarItem}>
                 <NavLink to={routes.signOut} className={styles.navbarLink}>
-                  Sign out
+                  Выйти
                 </NavLink>
               </li>
             </>
@@ -41,12 +41,12 @@ export const PageHeader: FC = () => {
             <>
               <li className={styles.navbarItem}>
                 <NavLink to={routes.signIn} className={styles.navbarLink}>
-                  Sign in
+                  Войти
                 </NavLink>
               </li>
               <li className={styles.navbarItem}>
                 <NavLink to={routes.signUp} className={styles.navbarLink}>
-                  Sign up
+                  Регистрация
                 </NavLink>
               </li>
             </>

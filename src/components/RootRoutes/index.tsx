@@ -7,6 +7,7 @@ import {SignUp} from '../../pages/SignUp'
 import {Orders} from '../../pages/Orders'
 import {SignOut} from '../../pages/SignOut'
 import {Cart} from '../../pages/Cart'
+import {Checkout} from '../../pages/Checkout'
 
 export enum routes {
   home = '/',
@@ -29,6 +30,7 @@ export const RootRoutes = () => {
       <Route path={routes.orders} exact={true} component={Orders} />
       <Route path={routes.signOut} exact={true} component={SignOut} />
       <Route path={routes.cart} exact={true} component={Cart} />
+      <Route path={routes.checkout} exact={true} component={Checkout} />
     </Switch>
   )
 }

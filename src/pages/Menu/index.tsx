@@ -18,7 +18,7 @@ export const Menu: FC = () => {
     <div className="page-wrapper">
       <div className="container">
         <Divider className="pages-title" orientation="left">
-          Menu
+          Меню
         </Divider>
 
         <Row>

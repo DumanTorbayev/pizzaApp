@@ -32,11 +32,11 @@ export const SignInForm: FC = () => {
           rules={[
             {
               type: 'email',
-              message: 'The input is not valid E-mail!',
+              message: 'Некорректный email',
             },
             {
               required: true,
-              message: 'Please input your E-mail!',
+              message: 'Введите свой email',
             },
           ]}
         >
@@ -48,12 +48,12 @@ export const SignInForm: FC = () => {
         </Form.Item>
         <Form.Item
           name="password"
-          rules={[{required: true, message: 'Please input your Password!'}]}
+          rules={[{required: true, message: 'Введите пароль'}]}
         >
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
-            placeholder="Password"
+            placeholder="Пароль"
             size="large"
           />
         </Form.Item>
@@ -70,17 +70,17 @@ export const SignInForm: FC = () => {
             htmlType="submit"
             className={`${styles.btn} primary-btn`}
           >
-            Sign in
+            Войти
           </Button>
-          Not yet registered?{' '}
+          Еще не зарегистрировались?{' '}
           <Link to={routes.signUp} className={styles.signupLink}>
-            Sign up
+            Регистрация
           </Link>
         </Form.Item>
       </Form>
 
       <Title style={{textAlign: 'center'}} level={4}>
-        OR
+        ИЛИ
       </Title>
 
       <StylizedFirebaseAuth
