@@ -34,11 +34,11 @@ export const SignUpForm = () => {
           rules={[
             {
               type: 'email',
-              message: 'Некорректный email',
+              message: 'The input is not valid E-mail!',
             },
             {
               required: true,
-              message: 'Введите свой email',
+              message: 'Please input your E-mail!',
             },
           ]}
         >
@@ -50,12 +50,12 @@ export const SignUpForm = () => {
         </Form.Item>
         <Form.Item
           name="password"
-          rules={[{required: true, message: 'Введите пароль'}]}
+          rules={[{required: true, message: 'Please input your Password!'}]}
         >
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
-            placeholder="Пароль"
+            placeholder="Password"
             size="large"
           />
         </Form.Item>
@@ -66,7 +66,7 @@ export const SignUpForm = () => {
           rules={[
             {
               required: true,
-              message: 'Подтвердите введенный пароль',
+              message: 'Please confirm your password!',
             },
             ({getFieldValue}) => ({
               validator(_, value) {
@@ -74,7 +74,9 @@ export const SignUpForm = () => {
                   return Promise.resolve()
                 }
 
-                return Promise.reject(new Error('Пароли не совпадают'))
+                return Promise.reject(
+                  new Error('The two passwords that you entered do not match!')
+                )
               },
             }),
           ]}
@@ -82,7 +84,7 @@ export const SignUpForm = () => {
           <Input
             type="password"
             prefix={<LockOutlined className="site-form-item-icon" />}
-            placeholder="Подтвердите пароль"
+            placeholder="Confirm password"
             size="large"
           />
         </Form.Item>
@@ -97,17 +99,17 @@ export const SignUpForm = () => {
             htmlType="submit"
             className={`${styles.btn} primary-btn`}
           >
-            Зарегистрироваться
+            Sigh up
           </Button>
-          Уже зарегистрирован?{' '}
+          Already registered?{' '}
           <Link to={routes.signIn} className={styles.signupLink}>
-            Войти
+            Sign in
           </Link>
         </Form.Item>
       </Form>
 
       <Title style={{textAlign: 'center'}} level={4}>
-        ИЛИ
+        OR
       </Title>
 
       <StylizedFirebaseAuth

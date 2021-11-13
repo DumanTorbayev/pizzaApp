@@ -13,12 +13,12 @@ export const Home: FC = () => {
         <div className={styles.content}>
           <div className={styles.logo}>
             <img src={logo} alt="Logo" />
-            <span>PizzaThor</span>
+            <span>Pizza</span>
           </div>
-          <h2 className={styles.subtitle}>Онлайн заказ пиццы</h2>
-          <h1 className={styles.title}>Быстрая доставка пиццы</h1>
+          <h2 className={styles.subtitle}>Pizza Online Ordering</h2>
+          <h1 className={styles.title}>Your Pizza Delivered Fast & Fresh</h1>
           <Button className="primary-btn" type="primary">
-            <Link to={routes.menu}>Заказать сейчас</Link>
+            <Link to={routes.menu}>Order Now</Link>
           </Button>
         </div>
       </div>

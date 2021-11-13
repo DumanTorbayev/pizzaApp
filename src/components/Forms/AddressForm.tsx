@@ -37,53 +37,53 @@ export const AddressForm: FC<addressFormPropTypes> = ({
             rules={[
               {
                 required: true,
-                message: 'Введите название города',
+                message: 'Enter the name of the city',
               },
-              {min: 4, message: 'Должно быть минимум 4 символа'},
+              {min: 4, message: 'Must be at least 4 characters'},
               {
                 pattern: /^[a-zA-Zа-яА-Я]+$/,
-                message: 'Введите корректное название города',
+                message: 'Enter the correct city name',
               },
             ]}
             initialValue={address ? address.city : ''}
           >
-            <Input placeholder="Город" size="large" />
+            <Input placeholder="City" size="large" />
           </Form.Item>
           <Form.Item
             name="street"
             rules={[
               {
                 required: true,
-                message: 'Введите название улицы',
+                message: 'Enter street name',
               },
             ]}
             initialValue={address ? address.street : ''}
           >
-            <Input placeholder="Улица" size="large" />
+            <Input placeholder="Street" size="large" />
           </Form.Item>
           <Form.Item
             name="buildingNumber"
             rules={[
               {
                 required: true,
-                message: 'Введите номер дома/здания',
+                message: 'Enter building number',
               },
             ]}
             initialValue={address ? address.buildingNumber : ''}
           >
-            <Input placeholder="Номер дома/здания" size="large" />
+            <Input placeholder="Building number" size="large" />
           </Form.Item>
           <Form.Item
             name="flatNumber"
             rules={[
               {
                 required: true,
-                message: 'Введите номер квартиры/офиса',
+                message: 'Enter your apartment/office number',
               },
             ]}
             initialValue={address ? address.flatNumber : ''}
           >
-            <Input placeholder="Номер квартиры/офиса" size="large" />
+            <Input placeholder="Apartment/Office number" size="large" />
           </Form.Item>
           <Row gutter={12} className={styles.mt}>
             <Col>
@@ -92,12 +92,12 @@ export const AddressForm: FC<addressFormPropTypes> = ({
                 type="primary"
                 onClick={() => handleHideAddressForm(false)}
               >
-                Отменить
+                Cancel
               </Button>
             </Col>
             <Col>
               <Button className="primary-btn" type="primary" htmlType="submit">
-                Обновить
+                Update
               </Button>
             </Col>
           </Row>

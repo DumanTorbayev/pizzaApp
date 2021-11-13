@@ -15,7 +15,7 @@ export const Cart = () => {
     <div className="page-wrapper">
       <div className="container">
         <Divider className="pages-title" orientation="left">
-          Корзина
+          Cart
         </Divider>
 
         <div className={styles.list}>
@@ -28,7 +28,7 @@ export const Cart = () => {
           <Typography.Title level={2}>$ {totalPrice}</Typography.Title>
 
           <Button className="primary-btn" type="primary">
-            <Link to={routes.checkout}>Оформить заказ</Link>
+            <Link to={routes.checkout}>Checkout</Link>
           </Button>
         </div>
       </div>

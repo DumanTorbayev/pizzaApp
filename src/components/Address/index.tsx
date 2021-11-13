@@ -13,20 +13,22 @@ export const Address: FC<AddressTypes> = ({
     <Card
       className={styles.card}
       size="small"
-      title="Адрес"
+      title="Address"
       headStyle={{fontSize: '20px'}}
     >
       <p>
-        <span className={styles.subtitle}>Город:</span> {city}
+        <span className={styles.subtitle}>City:</span> {city}
       </p>
       <p>
-        <span className={styles.subtitle}>Улица:</span> {street}
+        <span className={styles.subtitle}>Street:</span> {street}
       </p>
       <p>
-        <span className={styles.subtitle}>Дом/Здание:</span> {buildingNumber}
+        <span className={styles.subtitle}>Building number:</span>
+        {buildingNumber}
       </p>
       <p>
-        <span className={styles.subtitle}>Квартира/Офис:</span> {flatNumber}
+        <span className={styles.subtitle}>Apartment/Office number:</span>
+        {flatNumber}
       </p>
     </Card>
   )

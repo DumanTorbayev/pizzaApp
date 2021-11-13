@@ -6,7 +6,7 @@ export const Orders: FC = () => {
     <div className="page-wrapper">
       <div className="container">
         <Divider className="pages-title" orientation="left">
-          Заказы
+          Placed orders
         </Divider>
       </div>
     </div>

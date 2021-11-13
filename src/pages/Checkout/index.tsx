@@ -7,14 +7,22 @@ import {routes} from '../../components/RootRoutes'
 import {Redirect} from 'react-router-dom'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {useActions} from '../../hooks/useActions'
+import {getTotalPrice} from '../../store/cart/selectors'
+import {OrderDataTypes} from '../../types/order'
 
 export const Checkout: FC = () => {
   const {user} = useTypedSelector((state) => state.auth)
   const {items} = useTypedSelector((state) => state.cart)
-  const {address, isLoading, error} = useTypedSelector((state) => state.address)
-  const {getAddress} = useActions()
+  const totalPrice = useTypedSelector((state) => getTotalPrice(state))
+  const {
+    address,
+    isLoading,
+    error: addressError,
+  } = useTypedSelector((state) => state.address)
+  const {error: orderError} = useTypedSelector((state) => state.order)
+  const {getAddress, placeOrderInit, placeOrderFail} = useActions()
   const [addressFormShow, setAddressFormShow] = useState<boolean>(false)
-  const [radioBtn, setRadioBtn] = useState<string>('')
+  const [paymentMethod, setPaymentMethod] = useState<number>(0)
 
   useEffect(() => {
     if (user) getAddress(user)
@@ -24,7 +32,25 @@ export const Checkout: FC = () => {
     setAddressFormShow(true)
   }
 
-  const placeOrderHandler = () => {}
+  const placeOrderHandler = () => {
+    const data: OrderDataTypes = {
+      order: items,
+      address,
+      uid: user && user.uid,
+      totalPrice,
+      paymentMethod,
+    }
+
+    if (address && paymentMethod) {
+      placeOrderInit(data)
+    } else if (!address && !paymentMethod) {
+      placeOrderFail('Please make sure that all fields are filled')
+    } else if (!address) {
+      placeOrderFail('Please fill in the address field')
+    } else {
+      placeOrderFail('Please select the mode of payment field')
+    }
+  }
 
   if (!user) return <Redirect to={routes.signIn} />
   if (items.length === 0) return <Redirect to={routes.menu} />
@@ -33,12 +59,12 @@ export const Checkout: FC = () => {
     <div className="page-wrapper">
       <div className="container">
         <Divider className="pages-title" orientation="left">
-          Оформление заказа
+          Checkout
         </Divider>
 
         <div className={styles.content}>
           <Divider className="pages-subtitle" orientation="left">
-            Местоположение
+            Location
           </Divider>
 
           {isLoading ? (
@@ -48,16 +74,23 @@ export const Checkout: FC = () => {
               {address && <Address {...address} />}
               {addressFormShow ? (
                 <AddressForm handleHideAddressForm={setAddressFormShow} />
-              ) : error === 'Address not found' ? (
+              ) : addressError === 'Address not found' ? (
                 <>
-                  <Alert message={error} type="error" />
-                  <Button
-                    className="primary-btn"
-                    type="primary"
-                    onClick={handleShowAddressForm}
-                  >
-                    Добавить адрес
-                  </Button>
+                  <Alert
+                    message={addressError}
+                    type="error"
+                    className={styles.errorAlert}
+                  />
+
+                  <div className={styles.mt}>
+                    <Button
+                      className="primary-btn"
+                      type="primary"
+                      onClick={handleShowAddressForm}
+                    >
+                      Add address
+                    </Button>
+                  </div>
                 </>
               ) : (
                 <Button
@@ -65,7 +98,7 @@ export const Checkout: FC = () => {
                   type="primary"
                   onClick={handleShowAddressForm}
                 >
-                  Обновить адрес
+                  Update address
                 </Button>
               )}
             </>
@@ -74,27 +107,36 @@ export const Checkout: FC = () => {
 
         <div className={styles.content}>
           <Divider className="pages-subtitle" orientation="left">
-            Способ оплаты
+            Payment method
           </Divider>
           <Radio.Group
-            onChange={(e) => setRadioBtn(e.target.value)}
-            value={radioBtn}
+            onChange={(e) => setPaymentMethod(e.target.value)}
+            value={paymentMethod}
           >
             <Space direction="vertical">
-              <Radio value={1}>Наличными</Radio>
+              <Radio value={1}>In cash</Radio>
               <Radio disabled={true} value={2}>
-                Картой онлайн
+                Online card
               </Radio>
-              <Radio value={3}>Картой курьеру</Radio>
+              <Radio value={3}>By card to the courier</Radio>
             </Space>
           </Radio.Group>
+
+          {orderError && (
+            <Alert
+              message={orderError}
+              type="error"
+              className={styles.errorAlert}
+            />
+          )}
+
           <div className={styles.mt}>
             <Button
               type="primary"
               className="primary-btn"
               onClick={placeOrderHandler}
             >
-              Оформить заказ
+              Place order
             </Button>
           </div>
         </div>

@@ -23,11 +23,11 @@ export const SideCart = () => {
     <div className={styles.container}>
       <div className={styles.head}>
         <Typography.Title className={styles.title} level={2}>
-          Корзина
+          Cart
         </Typography.Title>
         {items.length > 0 && (
           <Button type="primary" danger={true} onClick={() => clearCart()}>
-            Очистить корзину
+            Clear cart
           </Button>
         )}
       </div>
@@ -36,7 +36,7 @@ export const SideCart = () => {
         {items.length === 0 && (
           <div className={styles.cartEmpty}>
             <img className={styles.cartEmptyImg} src={cartIcon} alt="" />
-            <Typography.Title level={3}>Cart is empty</Typography.Title>
+            <Typography.Title level={3}>Cart is empty!</Typography.Title>
           </div>
         )}
 
@@ -54,7 +54,7 @@ export const SideCart = () => {
             className={`${styles.cartBtn} primary-btn`}
             onClick={goToCart}
           >
-            Перейти в корзину
+            Go to cart
           </Button>
         </div>
       )}
