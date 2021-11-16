@@ -1,17 +1,20 @@
 import {call, put, takeEvery} from 'redux-saga/effects'
-import {placeOrderFail, placeOrderInit, placeOrderSuccess} from './slice'
+import {
+  getOrder,
+  getOrderFail,
+  getOrderSuccess,
+  placeOrder,
+  placeOrderFail,
+  placeOrderSuccess,
+} from './slice'
 import {errorType} from '../../types/errors'
 import {PayloadAction} from '@reduxjs/toolkit'
 import {OrderDataTypes} from '../../types/order'
-import {setOrder} from '../../api/order'
-import {AxiosResponse} from 'axios'
+import {fetchOrders, setOrder} from '../../api/order'
 
 function* setOrderWorker(action: PayloadAction<OrderDataTypes>) {
   try {
-    const response: AxiosResponse<OrderDataTypes> = yield call(
-      setOrder,
-      action.payload
-    )
+    const response: OrderDataTypes = yield call(setOrder, action.payload)
 
     if (!response) {
       yield put(placeOrderSuccess())
@@ -24,6 +27,18 @@ function* setOrderWorker(action: PayloadAction<OrderDataTypes>) {
   }
 }
 
+function* getOrderWorker(action: PayloadAction<string>) {
+  try {
+    const response: OrderDataTypes[] = yield call(fetchOrders, action.payload)
+
+    yield put(getOrderSuccess(response))
+  } catch (e) {
+    const error = e as errorType
+    yield put(getOrderFail(error.message))
+  }
+}
+
 export function* orderWatcher() {
-  yield takeEvery(placeOrderInit.type, setOrderWorker)
+  yield takeEvery(placeOrder.type, setOrderWorker)
+  yield takeEvery(getOrder.type, getOrderWorker)
 }

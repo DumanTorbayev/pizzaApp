@@ -6,15 +6,21 @@ const db = firebase.firestore()
 export const setOrder = async (data: OrderDataTypes) => {
   const dbRef = db.collection('orders').doc()
 
-  return await dbRef.set({...data, ts: Math.round(new Date().getTime())})
+  return await dbRef.set({...data})
 }
 
-export const getOrders = (uid: string, limit: number) => {
-  const dbRef = db
+export const fetchOrders = async (uid: string) => {
+  const data: OrderDataTypes[] | PromiseLike<OrderDataTypes[]> = []
+
+  const response = await db
     .collection('orders')
     .where('uid', '==', uid)
     .orderBy('ts', 'desc')
-    .limit(limit)
+    .get()
 
-  return dbRef.get()
+  response.docs.forEach((doc) => {
+    data.push(<OrderDataTypes>doc.data())
+  })
+
+  return data
 }

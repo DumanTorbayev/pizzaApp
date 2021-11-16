@@ -11,15 +11,11 @@ import {PayloadAction} from '@reduxjs/toolkit'
 import {UserType} from '../../types/user'
 import {addAddress, fetchAddress} from '../../api/address'
 import {errorType} from '../../types/errors'
-import {AxiosResponse} from 'axios'
 import {AddAddressTypes, AddressTypes} from '../../types/address'
 
 function* getAddressWorker(action: PayloadAction<UserType>) {
   try {
-    const response: AxiosResponse<AddressTypes> = yield call(
-      fetchAddress,
-      action.payload
-    )
+    const response: AddressTypes = yield call(fetchAddress, action.payload)
 
     if (response) {
       yield put(getAddressSuccess(response))
@@ -34,7 +30,7 @@ function* getAddressWorker(action: PayloadAction<UserType>) {
 
 function* setAddressWorker(action: PayloadAction<AddAddressTypes>) {
   try {
-    const response: AxiosResponse<AddressTypes | string> = yield call(
+    const response: AddressTypes | string = yield call(
       addAddress,
       action.payload
     )

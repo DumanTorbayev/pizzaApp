@@ -61,5 +61,3 @@ const cart = createSlice({
 
 export const {clearCart, addItem, removeItem} = cart.actions
 export default cart.reducer
-
-// TODO реализовать сохранение корзины в localeStorage

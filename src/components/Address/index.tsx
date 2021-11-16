@@ -14,7 +14,7 @@ export const Address: FC<AddressTypes> = ({
       className={styles.card}
       size="small"
       title="Address"
-      headStyle={{fontSize: '20px'}}
+      headStyle={{fontSize: '16px'}}
     >
       <p>
         <span className={styles.subtitle}>City:</span> {city}

@@ -5,14 +5,20 @@ import {MenuItem} from '../../components/MenuItem'
 import {useActions} from '../../hooks/useActions'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {SideCart} from '../../components/SideCart'
+import {MenuSkeleton} from '../../components/UI/MenuSkeleton'
 
 export const Menu: FC = () => {
-  const {setMenu} = useActions()
-  const {menuList} = useTypedSelector((state) => state.menu)
+  const {setMenu, clearCart} = useActions()
+  const {menuList, isLoading} = useTypedSelector((state) => state.menu)
+  const {orderPlaced} = useTypedSelector((state) => state.order)
 
   useEffect(() => {
     setMenu()
   }, [])
+
+  if (orderPlaced) {
+    clearCart()
+  }
 
   return (
     <div className="page-wrapper">
@@ -24,12 +30,16 @@ export const Menu: FC = () => {
         <Row>
           <Col span={15}>
             <Row gutter={16}>
-              {menuList &&
-                menuList.map((ml) => (
-                  <Col className={styles.col} span={8} key={ml.id}>
-                    <MenuItem {...ml} />
-                  </Col>
-                ))}
+              {!isLoading
+                ? menuList &&
+                  menuList.map((ml) => (
+                    <Col className={styles.col} span={8} key={ml.id}>
+                      <MenuItem {...ml} />
+                    </Col>
+                  ))
+                : Array(12)
+                    .fill(0)
+                    .map((_, index) => <MenuSkeleton key={index} />)}
             </Row>
           </Col>
 

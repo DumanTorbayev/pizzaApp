@@ -1,0 +1,35 @@
+.wrapper {
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 5px;
+  border: 1px solid #a6a6a6;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.time {
+  margin-bottom: 24px;
+}
+
+.table {
+  width: 100%;
+
+  tr {
+    border-bottom: 1px solid #333;
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  th, td {
+    padding: 16px;
+    text-align: left;
+  }
+}
+
+.totalPrice {
+  margin-top: 24px;
+}
