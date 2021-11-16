@@ -3,7 +3,6 @@ import firebase from './firebase'
 import {Layout} from 'antd'
 import {PageHeader} from './components/PageHeader'
 import {RootRoutes} from './components/RootRoutes'
-import {PageFooter} from './components/PageFooter'
 import {useActions} from './hooks/useActions'
 
 export const App: FC = () => {
@@ -21,7 +20,6 @@ export const App: FC = () => {
         <Layout>
           <PageHeader />
           <RootRoutes />
-          <PageFooter />
         </Layout>
       </Suspense>
     </>
