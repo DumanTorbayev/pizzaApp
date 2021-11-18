@@ -4,7 +4,7 @@ import {useTypedSelector} from '../../hooks/useTypedSelector'
 import firebase from '../../firebase'
 import {routes} from '../../components/RootRoutes'
 
-export const SignOut = () => {
+const SignOut = () => {
   const {user} = useTypedSelector((state) => state.auth)
 
   if (user) {
@@ -13,3 +13,5 @@ export const SignOut = () => {
 
   return <Redirect to={routes.home} />
 }
+
+export default SignOut

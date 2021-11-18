@@ -6,7 +6,7 @@ import {Button} from 'antd'
 import {Link} from 'react-router-dom'
 import {routes} from '../../components/RootRoutes'
 
-export const Home: FC = () => {
+const Home: FC = () => {
   return (
     <Content className={`page-wrapper ${styles.container}`}>
       <div className="container">
@@ -25,3 +25,5 @@ export const Home: FC = () => {
     </Content>
   )
 }
+
+export default Home

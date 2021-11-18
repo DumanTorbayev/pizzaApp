@@ -5,7 +5,7 @@ import {Col, Divider, Row} from 'antd'
 import {SignUpForm} from '../../components/Forms/SignUpForm'
 import {routes} from '../../components/RootRoutes'
 
-export const SignUp: FC = () => {
+const SignUp: FC = () => {
   const {user} = useTypedSelector((state) => state.auth)
 
   if (user) return <Redirect to={routes.menu} />
@@ -25,3 +25,5 @@ export const SignUp: FC = () => {
     </div>
   )
 }
+
+export default SignUp

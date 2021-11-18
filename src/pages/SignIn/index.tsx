@@ -5,7 +5,7 @@ import {Col, Divider, Row} from 'antd'
 import {SignInForm} from '../../components/Forms/SignInForm'
 import {routes} from '../../components/RootRoutes'
 
-export const SignIn: FC = () => {
+const SignIn: FC = () => {
   const {user} = useTypedSelector((state) => state.auth)
 
   if (user) return <Redirect to={routes.menu} />
@@ -25,3 +25,5 @@ export const SignIn: FC = () => {
     </div>
   )
 }
+
+export default SignIn

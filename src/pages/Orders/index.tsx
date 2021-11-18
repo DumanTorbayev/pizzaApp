@@ -7,7 +7,7 @@ import {routes} from '../../components/RootRoutes'
 import {CustomSpinner} from '../../components/UI/CustomSpinner'
 import {OrderItems} from '../../components/OrderItems'
 
-export const Orders: FC = () => {
+const Orders: FC = () => {
   const {getOrder, clearOrders} = useActions()
   const {user} = useTypedSelector((state) => state.auth)
   const {orders, isLoading} = useTypedSelector((state) => state.order)
@@ -42,3 +42,5 @@ export const Orders: FC = () => {
     </div>
   )
 }
+
+export default Orders

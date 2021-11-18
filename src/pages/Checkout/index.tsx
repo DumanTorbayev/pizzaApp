@@ -11,7 +11,7 @@ import {useActions} from '../../hooks/useActions'
 import {getTotalPrice} from '../../store/cart/selectors'
 import {OrderDataTypes} from '../../types/order'
 
-export const Checkout: FC = () => {
+const Checkout: FC = () => {
   const {user} = useTypedSelector((state) => state.auth)
   const {items} = useTypedSelector((state) => state.cart)
   const totalPrice = useTypedSelector((state) => getTotalPrice(state))
@@ -173,3 +173,5 @@ export const Checkout: FC = () => {
     </div>
   )
 }
+
+export default Checkout

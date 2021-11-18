@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 import {routes} from '../../components/RootRoutes'
 import {getTotalPrice} from '../../store/cart/selectors'
 
-export const Cart = () => {
+const Cart = () => {
   const {items} = useTypedSelector((state) => state.cart)
   const totalPrice = useTypedSelector((state) => getTotalPrice(state))
 
@@ -35,3 +35,5 @@ export const Cart = () => {
     </div>
   )
 }
+
+export default Cart

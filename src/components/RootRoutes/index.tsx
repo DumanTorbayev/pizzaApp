@@ -1,13 +1,14 @@
-import React from 'react'
+import React, {lazy} from 'react'
 import {Route, Switch} from 'react-router-dom'
-import {Home} from '../../pages/Home'
-import {Menu} from '../../pages/Menu'
-import {SignIn} from '../../pages/SignIn'
-import {SignUp} from '../../pages/SignUp'
-import {Orders} from '../../pages/Orders'
-import {SignOut} from '../../pages/SignOut'
-import {Cart} from '../../pages/Cart'
-import {Checkout} from '../../pages/Checkout'
+
+const Home = lazy(() => import('../../pages/Home'))
+const Menu = lazy(() => import('../../pages/Menu'))
+const SignIn = lazy(() => import('../../pages/SignIn'))
+const SignUp = lazy(() => import('../../pages/SignUp'))
+const Orders = lazy(() => import('../../pages/Orders'))
+const SignOut = lazy(() => import('../../pages/Cart'))
+const Cart = lazy(() => import('../../pages/SignOut'))
+const Checkout = lazy(() => import('../../pages/Checkout'))
 
 export enum routes {
   home = '/',

@@ -7,7 +7,7 @@ import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {SideCart} from '../../components/SideCart'
 import {MenuSkeleton} from '../../components/UI/MenuSkeleton'
 
-export const Menu: FC = () => {
+const Menu: FC = () => {
   const {setMenu, clearCart} = useActions()
   const {menuList, isLoading} = useTypedSelector((state) => state.menu)
   const {orderPlaced} = useTypedSelector((state) => state.order)
@@ -51,3 +51,5 @@ export const Menu: FC = () => {
     </div>
   )
 }
+
+export default Menu
