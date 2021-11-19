@@ -6,8 +6,8 @@ const Menu = lazy(() => import('../../pages/Menu'))
 const SignIn = lazy(() => import('../../pages/SignIn'))
 const SignUp = lazy(() => import('../../pages/SignUp'))
 const Orders = lazy(() => import('../../pages/Orders'))
-const SignOut = lazy(() => import('../../pages/Cart'))
-const Cart = lazy(() => import('../../pages/SignOut'))
+const SignOut = lazy(() => import('../../pages/SignOut'))
+const Cart = lazy(() => import('../../pages/Cart'))
 const Checkout = lazy(() => import('../../pages/Checkout'))
 
 export enum routes {
