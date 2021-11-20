@@ -20,35 +20,49 @@ export const SideCart = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.head}>
-        <Typography.Title className={styles.title} level={2}>
-          Cart
-        </Typography.Title>
-        {items.length > 0 && (
-          <Button type="primary" danger={true} onClick={() => clearCart()}>
-            Clear cart
-          </Button>
-        )}
-      </div>
+    <>
+      <div className={styles.container}>
+        <div className={styles.head}>
+          <Typography.Title className={styles.title} level={2}>
+            Cart
+          </Typography.Title>
+          {items.length > 0 && (
+            <Button type="primary" danger={true} onClick={() => clearCart()}>
+              Clear cart
+            </Button>
+          )}
+        </div>
 
-      <div className={styles.body}>
-        {items.length === 0 && (
-          <div className={styles.cartEmpty}>
-            <img className={styles.cartEmptyImg} src={cartIcon} alt="" />
-            <Typography.Title level={3}>Cart is empty!</Typography.Title>
+        <div className={styles.body}>
+          {items.length === 0 && (
+            <div className={styles.cartEmpty}>
+              <img className={styles.cartEmptyImg} src={cartIcon} alt="" />
+              <Typography.Title level={3}>Cart is empty!</Typography.Title>
+            </div>
+          )}
+
+          {items.map((item) => (
+            <SideCartItem key={item.id} {...item} />
+          ))}
+        </div>
+        {items.length > 0 && (
+          <div className={styles.footer}>
+            <Typography.Text className={styles.total}>
+              $ {totalPrice}
+            </Typography.Text>
+            <Button
+              type="primary"
+              className={`${styles.cartBtn} primary-btn`}
+              onClick={goToCart}
+            >
+              Go to cart
+            </Button>
           </div>
         )}
-
-        {items.map((item) => (
-          <SideCartItem key={item.id} {...item} />
-        ))}
       </div>
+
       {items.length > 0 && (
-        <div className={styles.footer}>
-          <Typography.Text className={styles.total}>
-            $ {totalPrice}
-          </Typography.Text>
+        <div className={styles.containerMobile}>
           <Button
             type="primary"
             className={`${styles.cartBtn} primary-btn`}
@@ -58,6 +72,6 @@ export const SideCart = () => {
           </Button>
         </div>
       )}
-    </div>
+    </>
   )
 }

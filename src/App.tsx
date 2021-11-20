@@ -4,6 +4,7 @@ import {Layout} from 'antd'
 import {PageHeader} from './components/PageHeader'
 import {RootRoutes} from './components/RootRoutes'
 import {useActions} from './hooks/useActions'
+import {CustomSpinner} from './components/UI/CustomSpinner'
 
 export const App: FC = () => {
   const {setAuthChange} = useActions()
@@ -16,7 +17,7 @@ export const App: FC = () => {
 
   return (
     <>
-      <Suspense fallback={<h1>Loading ...</h1>}>
+      <Suspense fallback={<CustomSpinner />}>
         <Layout>
           <PageHeader />
           <RootRoutes />

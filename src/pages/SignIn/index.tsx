@@ -17,7 +17,7 @@ const SignIn: FC = () => {
           Sigh in
         </Divider>
         <Row>
-          <Col span={12} offset={6}>
+          <Col xs={{span: 24}} md={{span: 12, offset: 6}}>
             <SignInForm />
           </Col>
         </Row>

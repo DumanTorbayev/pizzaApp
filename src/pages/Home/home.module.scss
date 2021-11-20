@@ -1,14 +1,25 @@
+@import "src/assets/scss/mixins";
+@import "src/assets/scss/vars";
+
 .container {
   background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../../assets/images/pizza-bg.jpeg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  @include mq('tablet992') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .content {
   margin-top: 100px;
   color: #fff;
+  @include mq('tablet992') {
+    margin-top: 0;
+  }
 }
 
 .logo {
@@ -18,11 +29,17 @@
   font-size: 80px;
   font-weight: 500;
   text-transform: uppercase;
-  color: #9254de;
+  color: $purpleHover;
+  @include mq('mobile414') {
+    font-size: 56px;
+  }
 
   img {
     width: 150px;
     margin-right: 16px;
+    @include mq('mobile414') {
+      width: 80px;
+    }
   }
 
   span {
@@ -33,9 +50,21 @@
 .subtitle {
   color: inherit;
   font-size: 32px;
+  @include mq('mobile414') {
+    font-size: 28px;
+  }
+  @include mq('mobile320') {
+    font-size: 24px;
+  }
 }
 
 .title {
   color: inherit;
   font-size: 48px;
+  @include mq('mobile414') {
+    font-size: 36px;
+  }
+  @include mq('mobile320') {
+    font-size: 28px;
+  }
 }

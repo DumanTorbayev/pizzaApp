@@ -18,28 +18,31 @@ export const OrderItems: FC<OrderDataTypes> = ({
 
       {address && <Address {...address} />}
 
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Item</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {order.map((item, index) => (
-            <tr key={index}>
-              <th scope="row">{index + 1}</th>
-              <td>{item.name}</td>
-              <td>{item.price}</td>
-              <td>{item.quantity}</td>
-              <td>{item.quantity * item.price}</td>
+      <div className={styles.tableWrapper}>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Item</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {order.map((item, index) => (
+              <tr key={index}>
+                <th scope="row">{index + 1}</th>
+                <td>{item.name}</td>
+                <td>{item.price}</td>
+                <td>{item.quantity}</td>
+                <td>{item.quantity * item.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
       <div className={styles.totalPrice}>
         <strong>Total Price: ₹</strong> {totalPrice}
       </div>

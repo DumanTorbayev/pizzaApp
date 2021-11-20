@@ -17,7 +17,7 @@ const SignUp: FC = () => {
           Sigh up
         </Divider>
         <Row>
-          <Col span={12} offset={6}>
+          <Col xs={{span: 24}} md={{span: 12, offset: 6}}>
             <SignUpForm />
           </Col>
         </Row>

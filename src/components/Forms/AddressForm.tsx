@@ -5,11 +5,11 @@ import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {AddressTypes} from '../../types/address'
 import {useActions} from '../../hooks/useActions'
 
-interface addressFormPropTypes {
+interface AddressFormPropTypes {
   handleHideAddressForm: (show: boolean) => void
 }
 
-export const AddressForm: FC<addressFormPropTypes> = ({
+export const AddressForm: FC<AddressFormPropTypes> = ({
   handleHideAddressForm,
 }) => {
   const {address} = useTypedSelector((state) => state.address)
@@ -25,7 +25,7 @@ export const AddressForm: FC<addressFormPropTypes> = ({
 
   return (
     <Row>
-      <Col sm={24} lg={16} xl={10}>
+      <Col xs={24} lg={16} xl={10}>
         <Form
           name="normal_login"
           className="login-form"

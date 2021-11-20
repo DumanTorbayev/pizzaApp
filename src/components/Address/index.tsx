@@ -17,17 +17,17 @@ export const Address: FC<AddressTypes> = ({
       headStyle={{fontSize: '16px'}}
     >
       <p>
-        <span className={styles.subtitle}>City:</span> {city}
+        <span className={styles.subtitle}>City:</span>&nbsp;{city}
       </p>
       <p>
-        <span className={styles.subtitle}>Street:</span> {street}
+        <span className={styles.subtitle}>Street:</span>&nbsp;{street}
       </p>
       <p>
-        <span className={styles.subtitle}>Building number:</span>
+        <span className={styles.subtitle}>Building number:</span>&nbsp;
         {buildingNumber}
       </p>
       <p>
-        <span className={styles.subtitle}>Apartment/Office number:</span>
+        <span className={styles.subtitle}>Apartment/Office number:</span>&nbsp;
         {flatNumber}
       </p>
     </Card>

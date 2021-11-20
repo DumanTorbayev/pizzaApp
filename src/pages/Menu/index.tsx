@@ -28,22 +28,38 @@ const Menu: FC = () => {
         </Divider>
 
         <Row>
-          <Col span={15}>
+          <Col lg={{span: 15}}>
             <Row gutter={16}>
               {!isLoading
                 ? menuList &&
                   menuList.map((ml) => (
-                    <Col className={styles.col} span={8} key={ml.id}>
+                    <Col
+                      className={styles.col}
+                      xs={24}
+                      sm={{span: 12}}
+                      md={{span: 8}}
+                      key={ml.id}
+                    >
                       <MenuItem {...ml} />
                     </Col>
                   ))
                 : Array(12)
                     .fill(0)
-                    .map((_, index) => <MenuSkeleton key={index} />)}
+                    .map((_, index) => (
+                      <Col
+                        className={styles.col}
+                        xs={24}
+                        sm={{span: 12}}
+                        md={{span: 8}}
+                        key={index}
+                      >
+                        <MenuSkeleton />
+                      </Col>
+                    ))}
             </Row>
           </Col>
 
-          <Col span={8} offset={1}>
+          <Col lg={{span: 8, offset: 1}}>
             <SideCart />
           </Col>
         </Row>

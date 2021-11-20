@@ -1,3 +1,5 @@
+@import "src/assets/scss/mixins";
+
 .wrapper {
   margin-bottom: 24px;
   padding: 16px;
@@ -5,10 +7,21 @@
   border: 1px solid #a6a6a6;
   background-color: #fff;
   font-size: 16px;
+  @include mq('mobile576') {
+    margin-bottom: 16px;
+    padding: 8px;
+  }
 }
 
 .time {
   margin-bottom: 24px;
+}
+
+.tableWrapper {
+  @include mq('mobile576') {
+    overflow-x: auto;
+    padding-bottom: 20px;
+  }
 }
 
 .table {
@@ -27,9 +40,15 @@
   th, td {
     padding: 16px;
     text-align: left;
+    @include mq('mobile320') {
+      padding: 8px;
+    }
   }
 }
 
 .totalPrice {
   margin-top: 24px;
+  @include mq('mobile576') {
+    margin-top: 0;
+  }
 }

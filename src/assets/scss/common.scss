@@ -1,0 +1,52 @@
+.page-wrapper {
+  min-height: calc(100vh - 64px);
+  margin-top: 64px;
+  @include mq('mobile576') {
+    min-height: calc(100vh - 50px);
+    margin-top: 50px;
+  }
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  @include mq('desktop1440') {
+    max-width: 1200px;
+  }
+  @include mq('desktop1280') {
+    max-width: 100%;
+    padding: 24px;
+  }
+  @include mq('tablet1024') {
+    padding: 16px;
+  }
+
+  .pages-title {
+    font-size: 36px;
+
+    span {
+      padding: 0 8px;
+    }
+  }
+}
+
+.primary-btn {
+  background-color: $purple;
+  border-color: $purple;
+
+  &:hover, &:active, &:focus {
+    background-color: $purpleHover;
+    border-color: $purpleHover;
+  }
+}
+
+.secondary-btn {
+  background-color: $gray;
+  border-color: $gray;
+
+  &:hover, &:active, &:focus {
+    background-color: $grayHover;
+    border-color: $grayHover;
+  }
+}
