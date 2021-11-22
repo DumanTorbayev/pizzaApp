@@ -1,15 +1,9 @@
 import React from 'react'
-import {useTypedSelector} from '../../hooks/useTypedSelector'
-import {Redirect} from 'react-router-dom'
 import {Col, Divider, Row} from 'antd'
+
 import {SignUpForm} from '../../components/Forms/SignUpForm'
-import {routes} from '../../components/RootRoutes'
 
 const SignUp = () => {
-  const {user} = useTypedSelector((state) => state.auth)
-
-  if (user) return <Redirect to={routes.menu} />
-
   return (
     <div className="page-wrapper">
       <div className="container">

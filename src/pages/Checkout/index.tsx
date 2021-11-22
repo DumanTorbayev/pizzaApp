@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Alert, Button, Divider, Radio, Space} from 'antd'
 import {Redirect} from 'react-router-dom'
 
@@ -15,7 +15,7 @@ import {IOrderData} from '../../types/order'
 
 import styles from './checkout.module.scss'
 
-const Checkout: FC = () => {
+const Checkout = () => {
   const {user} = useTypedSelector((state) => state.auth)
   const {items} = useTypedSelector((state) => state.cart)
   const totalPrice = useTypedSelector((state) => getTotalPrice(state))
@@ -163,7 +163,6 @@ const Checkout: FC = () => {
     )
   }
 
-  if (!user) return <Redirect to={routes.signIn} />
   if (items.length === 0) return <Redirect to={routes.menu} />
 
   return (

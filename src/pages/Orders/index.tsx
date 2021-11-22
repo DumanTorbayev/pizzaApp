@@ -1,8 +1,5 @@
 import React, {useEffect} from 'react'
 import {Divider, Typography} from 'antd'
-import {Redirect} from 'react-router-dom'
-
-import {routes} from '../../components/RootRoutes'
 import {CustomSpinner} from '../../components/UI/CustomSpinner'
 import {OrderItems} from '../../components/OrderItems'
 
@@ -21,8 +18,6 @@ const Orders = () => {
       clearOrders()
     }
   }, [])
-
-  if (!user) return <Redirect to={routes.signIn} />
 
   const orderContentRender = () => {
     if (orderIsLoading) return <CustomSpinner />

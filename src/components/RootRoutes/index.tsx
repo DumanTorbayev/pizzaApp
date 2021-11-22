@@ -1,5 +1,9 @@
 import React, {lazy} from 'react'
-import {Route, Switch} from 'react-router-dom'
+import {Redirect, Route, Switch} from 'react-router-dom'
+
+import {PrivateRoute} from '../PrivateRoutes'
+
+import {useTypedSelector} from '../../hooks/useTypedSelector'
 
 const Home = lazy(() => import('../../pages/Home'))
 const Menu = lazy(() => import('../../pages/Menu'))
@@ -22,16 +26,28 @@ export enum routes {
 }
 
 export const RootRoutes = () => {
+  const {user} = useTypedSelector((state) => state.auth)
+
   return (
     <Switch>
+      <PrivateRoute component={Orders} path={routes.orders} exact={true} />
+      <PrivateRoute component={Checkout} path={routes.checkout} exact={true} />
+      <PrivateRoute component={SignOut} path={routes.signOut} exact={true} />
+
       <Route path={routes.home} exact={true} component={Home} />
       <Route path={routes.menu} exact={true} component={Menu} />
-      <Route path={routes.signIn} exact={true} component={SignIn} />
-      <Route path={routes.signUp} exact={true} component={SignUp} />
-      <Route path={routes.orders} exact={true} component={Orders} />
-      <Route path={routes.signOut} exact={true} component={SignOut} />
       <Route path={routes.cart} exact={true} component={Cart} />
-      <Route path={routes.checkout} exact={true} component={Checkout} />
+
+      <Route path={routes.signIn}>
+        {user ? <Redirect to={routes.home} /> : <SignIn />}
+      </Route>
+      <Route path={routes.signUp}>
+        {user ? <Redirect to={routes.home} /> : <SignUp />}
+      </Route>
+      <Route path="*">
+        <Redirect to={user ? routes.home : routes.signIn} />
+      </Route>
+      <Redirect from="/" to={routes.home} />
     </Switch>
   )
 }
