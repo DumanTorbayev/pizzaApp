@@ -1,16 +1,18 @@
-import React, {FC, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {Divider, Typography} from 'antd'
-import {useActions} from '../../hooks/useActions'
-import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {Redirect} from 'react-router-dom'
+
 import {routes} from '../../components/RootRoutes'
 import {CustomSpinner} from '../../components/UI/CustomSpinner'
 import {OrderItems} from '../../components/OrderItems'
 
-const Orders: FC = () => {
+import {useActions} from '../../hooks/useActions'
+import {useTypedSelector} from '../../hooks/useTypedSelector'
+
+const Orders = () => {
   const {getOrder, clearOrders} = useActions()
   const {user} = useTypedSelector((state) => state.auth)
-  const {orders, isLoading} = useTypedSelector((state) => state.order)
+  const {orders, orderIsLoading} = useTypedSelector((state) => state.order)
 
   useEffect(() => {
     if (user) getOrder(user.uid)
@@ -22,6 +24,18 @@ const Orders: FC = () => {
 
   if (!user) return <Redirect to={routes.signIn} />
 
+  const orderContentRender = () => {
+    if (orderIsLoading) return <CustomSpinner />
+
+    return orders.length > 0 ? (
+      orders.map((order) => <OrderItems {...order} key={order.ts} />)
+    ) : (
+      <Typography.Title level={2}>
+        You haven't ordered anything yet!
+      </Typography.Title>
+    )
+  }
+
   return (
     <div className="page-wrapper">
       <div className="container">
@@ -29,15 +43,7 @@ const Orders: FC = () => {
           Orders
         </Divider>
 
-        {isLoading ? (
-          <CustomSpinner />
-        ) : orders.length > 0 ? (
-          orders.map((order) => <OrderItems {...order} key={order.ts} />)
-        ) : (
-          <Typography.Title level={2}>
-            You haven't ordered anything yet!
-          </Typography.Title>
-        )}
+        {orderContentRender()}
       </div>
     </div>
   )

@@ -1,13 +1,15 @@
 import {call, put, takeEvery} from 'redux-saga/effects'
-import {errorType} from '../../types/errors'
-import {setError, setMenu, setMenuSuccess} from './slice'
-import {fetchMenu} from '../../api/menu'
-import {MenuTypes} from '../../types/menu'
 import {AxiosResponse} from 'axios'
+
+import {fetchMenu} from '../../api/menu'
+
+import {setError, setMenu, setMenuSuccess} from './slice'
+import {IError} from '../../types/errors'
+import {IMenu} from '../../types/menu'
 
 function* menuWorker() {
   try {
-    const response: AxiosResponse<MenuTypes[]> = yield call(fetchMenu)
+    const response: AxiosResponse<IMenu[]> = yield call(fetchMenu)
 
     const withQuantity = response.data.map((data) => {
       data.quantity = 0
@@ -16,7 +18,7 @@ function* menuWorker() {
 
     yield put(setMenuSuccess(withQuantity))
   } catch (e) {
-    const error = e as errorType
+    const error = e as IError
     yield put(setError(error.message))
   }
 }

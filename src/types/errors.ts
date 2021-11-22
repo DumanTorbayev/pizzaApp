@@ -1,3 +1,3 @@
-export interface errorType {
+export interface IError {
   message: string
 }

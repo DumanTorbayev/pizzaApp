@@ -1,3 +1,3 @@
-export interface UserType {
+export interface IUser {
   uid: string
 }

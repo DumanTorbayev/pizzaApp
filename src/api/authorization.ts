@@ -1,12 +1,12 @@
-import firebase from "../firebase";
-import {authorizationTypes} from "../types/auth";
+import firebase from '../firebase'
+import {IAuthorization} from '../types/auth'
 
 const firebaseAuth = firebase.auth()
 
-export const authorization = ({email, password}: authorizationTypes) => {
-    return firebaseAuth.signInWithEmailAndPassword(email, password)
+export const authorization = ({email, password}: IAuthorization) => {
+  return firebaseAuth.signInWithEmailAndPassword(email, password)
 }
 
-export const registration = ({email, password}: authorizationTypes) => {
-    return firebaseAuth.createUserWithEmailAndPassword(email, password)
+export const registration = ({email, password}: IAuthorization) => {
+  return firebaseAuth.createUserWithEmailAndPassword(email, password)
 }

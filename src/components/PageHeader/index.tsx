@@ -1,14 +1,16 @@
-import React, {FC, useState} from 'react'
-import styles from './header.module.scss'
-import logo from '../../assets/images/pizza.png'
+import React, {useState} from 'react'
 import {Header} from 'antd/es/layout/layout'
 import {Link} from 'react-router-dom'
-import {routes} from '../RootRoutes'
-import NavbarList from './NavbarList'
 import {Button} from 'antd'
+import {routes} from '../RootRoutes'
+
+import NavbarList from './NavbarList'
 import {SideNavbar} from '../UI/SideNavbar'
 
-export const PageHeader: FC = () => {
+import logo from '../../assets/images/pizza.png'
+import styles from './header.module.scss'
+
+export const PageHeader = () => {
   const [sidebarShown, setSidebarShown] = useState<boolean>(false)
 
   return (

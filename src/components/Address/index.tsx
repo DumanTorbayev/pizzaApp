@@ -1,14 +1,35 @@
-import React, {FC} from 'react'
-import styles from './address.module.scss'
-import {AddressTypes} from '../../types/address'
+import React from 'react'
 import {Card} from 'antd'
 
-export const Address: FC<AddressTypes> = ({
+import {IAddress} from '../../types/address'
+
+import styles from './address.module.scss'
+
+export const Address: React.FC<IAddress> = ({
   city,
   street,
   buildingNumber,
   flatNumber,
 }) => {
+  const addressArray = [
+    {
+      name: 'City',
+      value: city,
+    },
+    {
+      name: 'Street',
+      value: street,
+    },
+    {
+      name: 'Building number',
+      value: buildingNumber,
+    },
+    {
+      name: 'Apartment/Office number',
+      value: flatNumber,
+    },
+  ]
+
   return (
     <Card
       className={styles.card}
@@ -16,20 +37,11 @@ export const Address: FC<AddressTypes> = ({
       title="Address"
       headStyle={{fontSize: '16px'}}
     >
-      <p>
-        <span className={styles.subtitle}>City:</span>&nbsp;{city}
-      </p>
-      <p>
-        <span className={styles.subtitle}>Street:</span>&nbsp;{street}
-      </p>
-      <p>
-        <span className={styles.subtitle}>Building number:</span>&nbsp;
-        {buildingNumber}
-      </p>
-      <p>
-        <span className={styles.subtitle}>Apartment/Office number:</span>&nbsp;
-        {flatNumber}
-      </p>
+      {addressArray.map(({name, value}) => (
+        <p key={value}>
+          <span className={styles.subtitle}>{name}:</span>&nbsp;{value}
+        </p>
+      ))}
     </Card>
   )
 }

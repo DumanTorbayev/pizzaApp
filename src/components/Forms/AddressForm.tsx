@@ -1,22 +1,24 @@
-import React, {FC} from 'react'
-import styles from './form.module.scss'
+import React from 'react'
 import {Button, Col, Form, Input, Row} from 'antd'
+
 import {useTypedSelector} from '../../hooks/useTypedSelector'
-import {AddressTypes} from '../../types/address'
+import {IAddress} from '../../types/address'
 import {useActions} from '../../hooks/useActions'
 
-interface AddressFormPropTypes {
+import styles from './form.module.scss'
+
+interface IAddressForm {
   handleHideAddressForm: (show: boolean) => void
 }
 
-export const AddressForm: FC<AddressFormPropTypes> = ({
+export const AddressForm: React.FC<IAddressForm> = ({
   handleHideAddressForm,
 }) => {
   const {address} = useTypedSelector((state) => state.address)
   const {user} = useTypedSelector((state) => state.auth)
   const {setAddress} = useActions()
 
-  const onFinish = (values: AddressTypes) => {
+  const onFinish = (values: IAddress) => {
     const isNewData = !address
 
     setAddress({user, address: values, isNewData})

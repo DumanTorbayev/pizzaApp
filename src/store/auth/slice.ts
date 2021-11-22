@@ -1,15 +1,16 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {authorizationTypes} from '../../types/auth'
-import {UserType} from '../../types/user'
 
-interface initialStateTypes {
-  user: UserType | null
+import {IAuthorization} from '../../types/auth'
+import {IUser} from '../../types/user'
+
+interface IInitialState {
+  user: IUser | null
   isLoading: boolean
   registered: boolean
   error: null | string
 }
 
-const initialState: initialStateTypes = {
+const initialState: IInitialState = {
   user: null,
   isLoading: false,
   registered: false,
@@ -25,7 +26,7 @@ const auth = createSlice({
       state.isLoading = false
       state.error = null
     },
-    setEmailAuth(state, action: PayloadAction<authorizationTypes>) {
+    setEmailAuth(state, action: PayloadAction<IAuthorization>) {
       state.isLoading = true
       state.error = null
     },
@@ -33,7 +34,7 @@ const auth = createSlice({
       state.isLoading = false
       state.error = action.payload
     },
-    setRegister(state, action: PayloadAction<authorizationTypes>) {
+    setRegister(state, action: PayloadAction<IAuthorization>) {
       state.isLoading = true
       state.error = null
     },

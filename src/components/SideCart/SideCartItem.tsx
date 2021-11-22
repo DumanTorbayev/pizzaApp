@@ -1,11 +1,13 @@
-import React, {FC} from 'react'
-import styles from './sideCart.module.scss'
+import React from 'react'
 import {Button, Typography} from 'antd'
 import {MinusOutlined, PlusOutlined} from '@ant-design/icons'
-import {useActions} from '../../hooks/useActions'
-import {MenuTypes} from '../../types/menu'
 
-export const SideCartItem: FC<MenuTypes> = ({
+import {IMenu} from '../../types/menu'
+import {useActions} from '../../hooks/useActions'
+
+import styles from './sideCart.module.scss'
+
+export const SideCartItem: React.FC<IMenu> = ({
   name,
   description,
   imageUrl,

@@ -1,13 +1,16 @@
 import React from 'react'
-import styles from './sideCart.module.scss'
-import cartIcon from '../../assets/images/shopping-cart.png'
 import {Button, Typography} from 'antd'
 import {useHistory} from 'react-router-dom'
+
+import {SideCartItem} from './SideCartItem'
+
 import {routes} from '../RootRoutes'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
-import {SideCartItem} from './SideCartItem'
-import {useActions} from '../../hooks/useActions'
 import {getTotalPrice} from '../../store/cart/selectors'
+import {useActions} from '../../hooks/useActions'
+
+import styles from './sideCart.module.scss'
+import cartIcon from '../../assets/images/shopping-cart.png'
 
 export const SideCart = () => {
   const history = useHistory()

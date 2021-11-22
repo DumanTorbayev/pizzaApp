@@ -1,46 +1,47 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {UserType} from '../../types/user'
-import {AddressTypes} from '../../types/address'
 
-interface initialStateTypes {
-  address: AddressTypes | null
-  isLoading: boolean
-  error: string | null
+import {IUser} from '../../types/user'
+import {IAddress} from '../../types/address'
+
+interface IInitialState {
+  address: IAddress | null
+  addressIsLoading: boolean
+  addressError: string | null
 }
 
-const initialState: initialStateTypes = {
+const initialState: IInitialState = {
   address: null,
-  isLoading: false,
-  error: null,
+  addressIsLoading: false,
+  addressError: null,
 }
 
 const address = createSlice({
   name: 'address',
   initialState,
   reducers: {
-    getAddress(state, action: PayloadAction<UserType>) {
-      state.isLoading = true
+    getAddress(state, action: PayloadAction<IUser>) {
+      state.addressIsLoading = true
     },
     getAddressSuccess(state, action: PayloadAction<any>) {
-      state.isLoading = false
+      state.addressIsLoading = false
       state.address = action.payload
-      state.error = null
+      state.addressError = null
     },
     getAddressFail(state, action: PayloadAction<string>) {
-      state.isLoading = false
-      state.error = action.payload
+      state.addressIsLoading = false
+      state.addressError = action.payload
     },
     setAddress(state, action: PayloadAction<any>) {
-      state.isLoading = true
+      state.addressIsLoading = true
     },
     setAddressSuccess(state, action: PayloadAction<any>) {
-      state.isLoading = false
+      state.addressIsLoading = false
       state.address = action.payload
-      state.error = null
+      state.addressError = null
     },
     setAddressFail(state, action: PayloadAction<string>) {
-      state.isLoading = false
-      state.error = action.payload
+      state.addressIsLoading = false
+      state.addressError = action.payload
     },
   },
 })

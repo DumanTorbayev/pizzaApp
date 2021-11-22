@@ -1,14 +1,14 @@
-import {UserType} from './user'
+import {IUser} from './user'
 
-export interface AddressTypes {
+export interface IAddress {
   city: string
   street: string
   buildingNumber: string
   flatNumber: string
 }
 
-export interface AddAddressTypes {
-  user: UserType
-  address: AddressTypes
+export interface IAddAddress {
+  user: IUser
+  address: IAddress
   isNewData: boolean
 }

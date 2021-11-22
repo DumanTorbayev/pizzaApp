@@ -1,12 +1,14 @@
-import React, {FC} from 'react'
-import styles from './menuItem.module.scss'
+import React from 'react'
 import {Button, Card, Col, Image, Row, Typography} from 'antd'
-import {MenuTypes} from '../../types/menu'
 import {MinusOutlined, PlusOutlined} from '@ant-design/icons'
+
+import {IMenu} from '../../types/menu'
 import {useActions} from '../../hooks/useActions'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 
-export const MenuItem: FC<MenuTypes> = ({
+import styles from './menuItem.module.scss'
+
+export const MenuItem: React.FC<IMenu> = ({
   name,
   description,
   imageUrl,
@@ -40,7 +42,7 @@ export const MenuItem: FC<MenuTypes> = ({
         {description}
       </Typography.Text>
       <Row className={styles.cardRow}>
-        <Col span={12}>$ {price}</Col>
+        <Col span={12}>&#36;&nbsp;{price}</Col>
         <Col span={12} className={styles.cardCol}>
           <Button
             type="primary"

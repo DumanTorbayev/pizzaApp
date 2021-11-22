@@ -1,9 +1,11 @@
-import React, {FC} from 'react'
-import styles from './orderItems.module.scss'
-import {OrderDataTypes} from '../../types/order'
+import React from 'react'
+
+import {IOrderData} from '../../types/order'
 import {Address} from '../Address'
 
-export const OrderItems: FC<OrderDataTypes> = ({
+import styles from './orderItems.module.scss'
+
+export const OrderItems: React.FC<IOrderData> = ({
   address,
   order,
   ts,
@@ -44,7 +46,7 @@ export const OrderItems: FC<OrderDataTypes> = ({
       </div>
 
       <div className={styles.totalPrice}>
-        <strong>Total Price: ₹</strong> {totalPrice}
+        <strong>Total Price:</strong>&nbsp;&#36;&nbsp;{totalPrice}
       </div>
     </div>
   )

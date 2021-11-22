@@ -1,11 +1,11 @@
-import React, {FC} from 'react'
+import React from 'react'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {Redirect} from 'react-router-dom'
 import {Col, Divider, Row} from 'antd'
 import {SignInForm} from '../../components/Forms/SignInForm'
 import {routes} from '../../components/RootRoutes'
 
-const SignIn: FC = () => {
+const SignIn = () => {
   const {user} = useTypedSelector((state) => state.auth)
 
   if (user) return <Redirect to={routes.menu} />

@@ -1,17 +1,17 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {OrderDataTypes} from '../../types/order'
+import {IOrderData} from '../../types/order'
 
-interface initialStateTypes {
-  isLoading: boolean
+interface IInitialState {
+  orderIsLoading: boolean
   orderPlaced: boolean
-  error: string | null
-  orders: OrderDataTypes[]
+  orderError: string | null
+  orders: IOrderData[]
 }
 
-const initialState: initialStateTypes = {
-  isLoading: false,
+const initialState: IInitialState = {
+  orderIsLoading: false,
   orderPlaced: false,
-  error: null,
+  orderError: null,
   orders: [],
 }
 
@@ -22,30 +22,30 @@ const order = createSlice({
     placeOrderInit(state) {
       state.orderPlaced = false
     },
-    placeOrder(state, action: PayloadAction<OrderDataTypes>) {
-      state.isLoading = true
+    placeOrder(state, action: PayloadAction<IOrderData>) {
+      state.orderIsLoading = true
     },
     placeOrderSuccess(state) {
-      state.isLoading = false
+      state.orderIsLoading = false
       state.orderPlaced = true
-      state.error = null
+      state.orderError = null
     },
     placeOrderFail(state, action: PayloadAction<string>) {
-      state.isLoading = false
-      state.error = action.payload
+      state.orderIsLoading = false
+      state.orderError = action.payload
       state.orderPlaced = false
     },
     getOrder(state, action: PayloadAction<string>) {
-      state.isLoading = true
+      state.orderIsLoading = true
     },
-    getOrderSuccess(state, action: PayloadAction<OrderDataTypes[]>) {
-      state.isLoading = false
-      state.error = null
+    getOrderSuccess(state, action: PayloadAction<IOrderData[]>) {
+      state.orderIsLoading = false
+      state.orderError = null
       state.orders = action.payload
     },
     getOrderFail(state, action: PayloadAction<string>) {
-      state.isLoading = false
-      state.error = action.payload
+      state.orderIsLoading = false
+      state.orderError = action.payload
     },
     clearOrders(state) {
       state.orders = []

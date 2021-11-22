@@ -1,13 +1,14 @@
-import {MenuTypes} from '../../types/menu'
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
-interface InitialStateTypes {
-  items: MenuTypes[]
+import {IMenu} from '../../types/menu'
+
+interface IInitialState {
+  items: IMenu[]
   itemsId: {[key: string]: number}
   totalPrice: number
 }
 
-const initialState: InitialStateTypes = {
+const initialState: IInitialState = {
   items: [],
   itemsId: {},
   totalPrice: 0,
@@ -22,7 +23,7 @@ const cart = createSlice({
       state.itemsId = {}
       state.totalPrice = 0
     },
-    addItem(state, action: PayloadAction<MenuTypes>) {
+    addItem(state, action: PayloadAction<IMenu>) {
       const {payload} = action
 
       if (payload.id in state.itemsId) {
@@ -36,7 +37,7 @@ const cart = createSlice({
         })
       }
     },
-    removeItem(state, action: PayloadAction<MenuTypes>) {
+    removeItem(state, action: PayloadAction<IMenu>) {
       const {payload} = action
 
       if (!(payload.id in state.itemsId)) {

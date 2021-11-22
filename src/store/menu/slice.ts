@@ -1,14 +1,15 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {MenuTypes} from '../../types/menu'
 
-interface initialStateTypes {
-  menuList: null | MenuTypes[]
+import {IMenu} from '../../types/menu'
+
+interface IInitialState {
+  menuList: IMenu[]
   isLoading: boolean
   error: null | string
 }
 
-const initialState: initialStateTypes = {
-  menuList: null,
+const initialState: IInitialState = {
+  menuList: [],
   isLoading: false,
   error: null,
 }
@@ -20,7 +21,7 @@ const menu = createSlice({
     setMenu(state) {
       state.isLoading = true
     },
-    setMenuSuccess(state, action: PayloadAction<MenuTypes[]>) {
+    setMenuSuccess(state, action: PayloadAction<IMenu[]>) {
       state.isLoading = false
       state.menuList = action.payload
     },

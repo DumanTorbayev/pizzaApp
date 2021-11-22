@@ -1,11 +1,14 @@
 import React, {FC, useEffect} from 'react'
-import styles from './menu.module.scss'
 import {Col, Divider, Row} from 'antd'
+
 import {MenuItem} from '../../components/MenuItem'
-import {useActions} from '../../hooks/useActions'
-import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {SideCart} from '../../components/SideCart'
 import {MenuSkeleton} from '../../components/UI/MenuSkeleton'
+
+import {useActions} from '../../hooks/useActions'
+import {useTypedSelector} from '../../hooks/useTypedSelector'
+
+import styles from './menu.module.scss'
 
 const Menu: FC = () => {
   const {setMenu, clearCart} = useActions()
@@ -30,32 +33,21 @@ const Menu: FC = () => {
         <Row>
           <Col lg={{span: 15}}>
             <Row gutter={16}>
-              {!isLoading
-                ? menuList &&
-                  menuList.map((ml) => (
-                    <Col
-                      className={styles.col}
-                      xs={24}
-                      sm={{span: 12}}
-                      md={{span: 8}}
-                      key={ml.id}
-                    >
-                      <MenuItem {...ml} />
-                    </Col>
-                  ))
-                : Array(12)
-                    .fill(0)
-                    .map((_, index) => (
-                      <Col
-                        className={styles.col}
-                        xs={24}
-                        sm={{span: 12}}
-                        md={{span: 8}}
-                        key={index}
-                      >
-                        <MenuSkeleton />
-                      </Col>
-                    ))}
+              {!isLoading ? (
+                menuList.map((ml) => (
+                  <Col
+                    className={styles.col}
+                    xs={24}
+                    sm={{span: 12}}
+                    md={{span: 8}}
+                    key={ml.id}
+                  >
+                    <MenuItem {...ml} />
+                  </Col>
+                ))
+              ) : (
+                <MenuSkeleton itemsLength={12} xs={24} sm={12} md={8} />
+              )}
             </Row>
           </Col>
 

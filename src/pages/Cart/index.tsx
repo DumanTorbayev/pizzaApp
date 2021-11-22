@@ -1,11 +1,14 @@
 import React from 'react'
-import styles from './cart.module.scss'
+import {Link} from 'react-router-dom'
 import {Button, Divider, Typography} from 'antd'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
+
 import {CartItem} from '../../components/CartItem'
-import {Link} from 'react-router-dom'
 import {routes} from '../../components/RootRoutes'
+
 import {getTotalPrice} from '../../store/cart/selectors'
+
+import styles from './cart.module.scss'
 
 const Cart = () => {
   const {items} = useTypedSelector((state) => state.cart)

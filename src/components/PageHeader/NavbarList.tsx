@@ -1,65 +1,63 @@
-import React, {FC} from 'react'
-import styles from './header.module.scss'
+import React from 'react'
 import {NavLink} from 'react-router-dom'
+
 import {routes} from '../RootRoutes'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 
-const NavbarList: FC = () => {
+import styles from './header.module.scss'
+
+interface INavLinks {
+  path: string
+  name: string
+  show: boolean
+}
+
+const NavbarList = () => {
   const {user} = useTypedSelector((state) => state.auth)
+
+  const navLinks: INavLinks[] = [
+    {
+      path: routes.menu,
+      name: 'Menu',
+      show: true,
+    },
+    {
+      path: routes.orders,
+      name: 'Orders',
+      show: !!user,
+    },
+    {
+      path: routes.signOut,
+      name: 'Sign out',
+      show: !!user,
+    },
+    {
+      path: routes.signIn,
+      name: 'Sign in',
+      show: !user,
+    },
+    {
+      path: routes.signUp,
+      name: 'Sign up',
+      show: !user,
+    },
+  ]
 
   return (
     <ul className={styles.navbarList}>
-      <li className={styles.navbarItem}>
-        <NavLink
-          to={routes.menu}
-          activeClassName={styles.navbarLinkActive}
-          className={styles.navbarLink}
-        >
-          Menu
-        </NavLink>
-      </li>
-      {user ? (
-        <>
-          <li className={styles.navbarItem}>
-            <NavLink
-              to={routes.orders}
-              activeClassName={styles.navbarLinkActive}
-              className={styles.navbarLink}
-            >
-              Orders
-            </NavLink>
-          </li>
-          <li className={styles.navbarItem}>
-            <NavLink
-              to={routes.signOut}
-              activeClassName={styles.navbarLinkActive}
-              className={styles.navbarLink}
-            >
-              Sign out
-            </NavLink>
-          </li>
-        </>
-      ) : (
-        <>
-          <li className={styles.navbarItem}>
-            <NavLink
-              to={routes.signIn}
-              activeClassName={styles.navbarLinkActive}
-              className={styles.navbarLink}
-            >
-              Sign in
-            </NavLink>
-          </li>
-          <li className={styles.navbarItem}>
-            <NavLink
-              to={routes.signUp}
-              activeClassName={styles.navbarLinkActive}
-              className={styles.navbarLink}
-            >
-              Sign up
-            </NavLink>
-          </li>
-        </>
+      {navLinks.map(
+        ({path, name, show}: INavLinks) =>
+          show && (
+            <li className={styles.navbarItem} key={path}>
+              <NavLink
+                to={path}
+                activeClassName={styles.navbarLinkActive}
+                className={styles.navbarLink}
+              >
+                {name}
+              </NavLink>
+            </li>
+          )
       )}
     </ul>
   )

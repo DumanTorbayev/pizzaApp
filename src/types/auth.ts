@@ -1,4 +1,4 @@
-export interface authorizationTypes {
+export interface IAuthorization {
   email: string
   password: string
 }

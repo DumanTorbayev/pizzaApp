@@ -1,10 +1,10 @@
-import {MenuTypes} from './menu'
-import {AddressTypes} from './address'
+import {IMenu} from './menu'
+import {IAddress} from './address'
 import {Key} from 'react'
 
-export interface OrderDataTypes {
-  order: MenuTypes[]
-  address: AddressTypes | null
+export interface IOrderData {
+  order: IMenu[]
+  address: IAddress | null
   uid: string | null
   totalPrice: number
   paymentMethod: number

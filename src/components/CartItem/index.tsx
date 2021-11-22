@@ -1,11 +1,13 @@
-import React, {FC} from 'react'
-import styles from './cartItem.module.scss'
-import {MenuTypes} from '../../types/menu'
-import {useActions} from '../../hooks/useActions'
+import React from 'react'
 import {Button, Typography} from 'antd'
 import {MinusOutlined, PlusOutlined} from '@ant-design/icons'
 
-export const CartItem: FC<MenuTypes> = ({
+import {useActions} from '../../hooks/useActions'
+import {IMenu} from '../../types/menu'
+
+import styles from './cartItem.module.scss'
+
+export const CartItem: React.FC<IMenu> = ({
   name,
   description,
   imageUrl,

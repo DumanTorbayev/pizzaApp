@@ -1,17 +1,20 @@
-import React, {FC} from 'react'
-import styles from './form.module.scss'
+import React from 'react'
 import {Alert, Button, Form, Input} from 'antd'
+import Title from 'antd/lib/typography/Title'
 import {LockOutlined, UserOutlined} from '@ant-design/icons'
 import {Link} from 'react-router-dom'
 import StylizedFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
-import Title from 'antd/lib/typography/Title'
+
+import firebase from '../../firebase'
+import {uiConfig} from '../../utils/firebaseUiConfig'
 import {useActions} from '../../hooks/useActions'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
-import {uiConfig} from '../../utils/firebaseUiConfig'
-import firebase from '../../firebase'
+
 import {routes} from '../RootRoutes'
 
-export const SignInForm: FC = () => {
+import styles from './form.module.scss'
+
+export const SignInForm = () => {
   const {setEmailAuth} = useActions()
   const {error} = useTypedSelector((state) => state.auth)
 

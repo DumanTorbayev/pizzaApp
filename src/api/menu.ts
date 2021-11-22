@@ -1,6 +1,6 @@
 import {api} from './index'
-import {MenuTypes} from '../types/menu'
+import {IMenu} from '../types/menu'
 
 export const fetchMenu = () => {
-  return api.get<MenuTypes[]>('menu.json')
+  return api.get<IMenu[]>('menu.json')
 }

@@ -1,12 +1,14 @@
-import React, {FC} from 'react'
-import styles from './home.module.scss'
-import logo from '../../assets/images/pizza.png'
+import React from 'react'
 import {Content} from 'antd/lib/layout/layout'
 import {Button} from 'antd'
 import {Link} from 'react-router-dom'
+
 import {routes} from '../../components/RootRoutes'
 
-const Home: FC = () => {
+import styles from './home.module.scss'
+import logo from '../../assets/images/pizza.png'
+
+const Home: React.FC = () => {
   return (
     <Content className={`page-wrapper ${styles.container}`}>
       <div className="container">

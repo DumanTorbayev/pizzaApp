@@ -1,17 +1,19 @@
-import React, {FC} from 'react'
-import styles from './sideNavbar.module.scss'
-import logo from '../../../assets/images/pizza.png'
+import React from 'react'
 import classNames from 'classnames'
-import NavbarList from '../../PageHeader/NavbarList'
 import {Link} from 'react-router-dom'
+
+import NavbarList from '../../PageHeader/NavbarList'
 import {routes} from '../../RootRoutes'
 
-interface SideNavbarTypes {
+import styles from './sideNavbar.module.scss'
+import logo from '../../../assets/images/pizza.png'
+
+interface ISideNavbar {
   sidebarClose: (show: boolean) => void
   sidebarShown: boolean
 }
 
-export const SideNavbar: FC<SideNavbarTypes> = ({
+export const SideNavbar: React.FC<ISideNavbar> = ({
   sidebarClose,
   sidebarShown,
 }) => {
