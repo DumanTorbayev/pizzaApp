@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, Typography} from 'antd'
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 import {SideCartItem} from './SideCartItem'
 
@@ -13,13 +13,13 @@ import styles from './sideCart.module.scss'
 import cartIcon from '../../assets/images/shopping-cart.png'
 
 export const SideCart = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const {items} = useTypedSelector((state) => state.cart)
   const totalPrice = useTypedSelector((state) => getTotalPrice(state))
   const {clearCart} = useActions()
 
   const goToCart = () => {
-    history.push(routes.cart)
+    navigate(routes.cart, {replace: true})
   }
 
   return (

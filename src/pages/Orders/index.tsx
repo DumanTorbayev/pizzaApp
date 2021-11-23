@@ -1,7 +1,10 @@
 import React, {useEffect} from 'react'
 import {Divider, Typography} from 'antd'
+import {Navigate} from 'react-router-dom'
+
 import {CustomSpinner} from '../../components/UI/CustomSpinner'
 import {OrderItems} from '../../components/OrderItems'
+import {routes} from '../../components/RootRoutes'
 
 import {useActions} from '../../hooks/useActions'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
@@ -30,6 +33,8 @@ const Orders = () => {
       </Typography.Title>
     )
   }
+
+  if (!user) return <Navigate to={routes.signIn} replace={true} />
 
   return (
     <div className="page-wrapper">

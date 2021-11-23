@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Alert, Button, Divider, Radio, Space} from 'antd'
-import {Redirect} from 'react-router-dom'
+import {Navigate} from 'react-router-dom'
 
 import {Address} from '../../components/Address'
 import {AddressForm} from '../../components/Forms/AddressForm'
@@ -163,7 +163,8 @@ const Checkout = () => {
     )
   }
 
-  if (items.length === 0) return <Redirect to={routes.menu} />
+  if (!user) return <Navigate to={routes.signIn} replace={true} />
+  if (items.length === 0) return <Navigate to={routes.menu} replace={true} />
 
   return (
     <div className="page-wrapper">

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Redirect} from 'react-router-dom'
+import {Navigate} from 'react-router-dom'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 import firebase from '../../firebase'
 import {routes} from '../../components/RootRoutes'
@@ -11,7 +11,7 @@ const SignOut = () => {
     firebase.auth().signOut()
   }
 
-  return <Redirect to={routes.home} />
+  return <Navigate to={routes.home} replace={true} />
 }
 
 export default SignOut

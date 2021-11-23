@@ -51,8 +51,11 @@ const NavbarList = () => {
             <li className={styles.navbarItem} key={path}>
               <NavLink
                 to={path}
-                activeClassName={styles.navbarLinkActive}
-                className={styles.navbarLink}
+                className={({isActive}) =>
+                  [styles.navbarLink, isActive ? styles.navbarLinkActive : null]
+                    .filter(Boolean)
+                    .join(' ')
+                }
               >
                 {name}
               </NavLink>
