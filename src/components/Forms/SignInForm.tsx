@@ -9,6 +9,7 @@ import firebase from '../../firebase'
 import {uiConfig} from '../../utils/firebaseUiConfig'
 import {useActions} from '../../hooks/useActions'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
+import {IAuthorization} from '../../types/auth'
 
 import {routes} from '../RootRoutes'
 
@@ -18,7 +19,7 @@ export const SignInForm = () => {
   const {setEmailAuth} = useActions()
   const {error} = useTypedSelector((state) => state.auth)
 
-  const onFinish = (values: any) => {
+  const onFinish = (values: IAuthorization) => {
     setEmailAuth(values)
   }
 

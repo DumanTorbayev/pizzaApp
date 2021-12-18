@@ -8,7 +8,7 @@ export interface IAddress {
 }
 
 export interface IAddAddress {
-  user: IUser
+  user: IUser | null
   address: IAddress
   isNewData: boolean
 }

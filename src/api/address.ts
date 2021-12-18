@@ -14,11 +14,13 @@ export const addAddress = async ({
   address,
   isNewData = true,
 }: IAddAddress) => {
-  const dbRef = db.collection('users').doc(user.uid)
+  if (user) {
+    const dbRef = db.collection('users').doc(user.uid)
 
-  if (isNewData) {
-    return await dbRef.set({...address})
-  } else {
-    return await dbRef.update({...address})
+    if (isNewData) {
+      return await dbRef.set({...address})
+    } else {
+      return await dbRef.update({...address})
+    }
   }
 }

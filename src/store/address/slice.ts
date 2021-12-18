@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
 import {IUser} from '../../types/user'
-import {IAddress} from '../../types/address'
+import {IAddAddress, IAddress} from '../../types/address'
 
 interface IInitialState {
   address: IAddress | null
@@ -22,7 +22,7 @@ const address = createSlice({
     getAddress(state, action: PayloadAction<IUser>) {
       state.addressIsLoading = true
     },
-    getAddressSuccess(state, action: PayloadAction<any>) {
+    getAddressSuccess(state, action: PayloadAction<IAddress>) {
       state.addressIsLoading = false
       state.address = action.payload
       state.addressError = null
@@ -31,10 +31,10 @@ const address = createSlice({
       state.addressIsLoading = false
       state.addressError = action.payload
     },
-    setAddress(state, action: PayloadAction<any>) {
+    setAddress(state, action: PayloadAction<IAddAddress>) {
       state.addressIsLoading = true
     },
-    setAddressSuccess(state, action: PayloadAction<any>) {
+    setAddressSuccess(state, action: PayloadAction<IAddress>) {
       state.addressIsLoading = false
       state.address = action.payload
       state.addressError = null

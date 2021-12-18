@@ -10,6 +10,7 @@ import {uiConfig} from '../../utils/firebaseUiConfig'
 import {routes} from '../RootRoutes'
 import {useActions} from '../../hooks/useActions'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
+import {IRegistration} from '../../types/auth'
 
 import styles from './form.module.scss'
 
@@ -17,7 +18,7 @@ export const SignUpForm = () => {
   const {setRegister} = useActions()
   const {error} = useTypedSelector((state) => state.auth)
 
-  const onFinish = (values: any) => {
+  const onFinish = (values: IRegistration) => {
     delete values.confirm
 
     setRegister(values)
