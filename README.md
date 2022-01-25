@@ -8,6 +8,7 @@
 * [Typescript](https://www.typescriptlang.org/)
 * [Redux](https://redux.js.org/)
 * [Redux Toolkit](https://redux-toolkit.js.org/)
+* [Redux Saga](https://redux-saga.js.org/)
 * [React router](https://reactrouter.com/)
 * [Axios](https://github.com/axios/axios)
 * [Ant Design](https://ant.design/)
